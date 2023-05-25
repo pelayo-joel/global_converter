@@ -42,8 +42,10 @@ git clone https://github.com/pelayo-joel/global_converter.git
     - ``arg1`` String to convert.
     - (optional) ``arg2`` to encrypt your string. 
 
-    - Note: if your string is not text-based, you'll need a white-space at the end to make it understand that you're not converting text, the program should handle the rest.
-        - Example: "01001000 01100101" -> text, "01001000 01100101 " -> binary  
+    - Notes: 
+        - If your string is not text-based, you'll need a white-space at the end to make it understand that you're not converting text, the program should handle the rest.
+            - Example: "01001000 01100101" -> text, "01001000 01100101 " -> binary
+        - Octal representation shall be noted with a '0' at the beginning (``0110`` instead of ``110``, keeping a convention from C)
 
 <br></br>
 ### **CREDITS** 
