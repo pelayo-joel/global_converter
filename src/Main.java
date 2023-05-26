@@ -5,12 +5,14 @@ import Encryption.Encryption;
 public class Main {
     public static void main(String[] args) throws Exception {
         //Checking if valid number of args, else prints an error
-        if (!(args.length == 2 || args.length == 3 || args.length == 4)) {
+        if (!(args.length == 2 || (args.length == 3 && (args[2].charAt(0) == '-')) || (args.length == 4 && (args[3].charAt(0) == '-')))) {
             throw new IllegalArgumentException(
-                "\nError: no or not enough arguments given\n" + 
+                "\nError: invalid arguments or syntax given\n" + 
                 "Syntax: (while in the bin directory)\n" + 
                 "    Default: java Main 'base output' 'String to convert'\n" + 
-                "    Optional arguments: --sha256 or -s (to get sha256 encryption of the string)", null);
+                "    Optional arguments (encryption): \n" + 
+                "       --sha256 or -s,\n" +
+                "       --caesar or -c followed by -k (k being any signed integer)", null);
         }
 
         

@@ -50,7 +50,7 @@ public class Encryption implements Bases {
                 this.caesar(keyValue);
                 return this.result; 
             default:
-                System.out.println("Error: Invalid base");
+                System.out.println("Error: Invalid algorithm");
                 System.exit(3);
                 return null;
         }
