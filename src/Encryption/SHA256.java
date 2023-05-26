@@ -77,7 +77,7 @@ public class SHA256 {
 
     /**
      * Stores each hexa values as decimals (determined by unpacking each hash values as 4 values of 8 bit
-     * which forms when in hexadecimal the final sha256 hash)
+     * which forms when in hexadecimal, the final sha256 hash)
      * 
      * @return  The hash values as decimals (will be converted to hexa in the 'Converter' class)
      */

@@ -5,7 +5,7 @@ import Encryption.Encryption;
 public class Main {
     public static void main(String[] args) throws Exception {
         //Checking if valid number of args, else prints an error
-        if (!(args.length == 2 || args.length == 3)) {
+        if (!(args.length == 2 || args.length == 3 || args.length == 4)) {
             throw new IllegalArgumentException(
                 "\nError: no or not enough arguments given\n" + 
                 "Syntax: (while in the bin directory)\n" + 
@@ -19,9 +19,12 @@ public class Main {
         short[] inputDecimal = result.GetDecimalValues();
         
         //First prints the encryption if the argument is given, then the requested base according to the first argument
-        if (args.length == 3) {
+        System.out.println();
+        if (args.length > 2) {
             Encryption crypted = new Encryption(inputDecimal);
-            System.out.println("\n" + crypted.Encrypt(args[2]));
+
+            if (args.length == 4) { System.out.println(crypted.Encrypt(args[2], args[3])); }
+            else { System.out.println(crypted.Encrypt(args[2], "-0")); }
         }
         System.out.println("'" + args[1] + "' in [" + args[0] + "]: " + result.ConvertBase(args[0].toLowerCase()) + "\n");
     }

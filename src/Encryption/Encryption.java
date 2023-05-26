@@ -3,6 +3,9 @@ package Encryption;
 import BaseConverter.*;
 
 
+/**
+ * Instantiate an object which can crypt via different algorithms
+ */
 public class Encryption implements Bases {
 
     /* -------------------- Properties -------------------- */
@@ -34,14 +37,15 @@ public class Encryption implements Bases {
      * @param algorithm
      * @return          the corresponding encrypted string
      */
-    public StringBuilder Encrypt(String algorithm) {
+    public StringBuilder Encrypt(String algorithm, String key) {
         this.result = new StringBuilder("");
         switch (algorithm) {
             case "-s", "--sha256":
                 this.sha256();
                 return this.result;
             case "-c", "--caesar":
-                this.result.append("Caesar: At a later date... :P");
+                int keyValue = Integer.valueOf(key.substring(1, key.length())); 
+                this.caesar(keyValue);
                 return this.result; 
             default:
                 System.out.println("Error: Invalid base");
@@ -72,7 +76,29 @@ public class Encryption implements Bases {
 
 
 
-    private void caesar() {
-        //Maybe :D
+    private void caesar(int key) {
+        String alphabet = "abcdefghijklmnopqrstuvwxyz";
+        String numeric = "0123456789";
+        String caesarHash = "";
+
+        for (int i = 0; i < this.DECIMAL_VALUES.length; i++) {
+            char defaultChar = (char) this.DECIMAL_VALUES[i];
+            char offsetChar;
+
+            if (Character.isDigit(defaultChar)) {
+                while (key < 0) { key += numeric.length(); }
+                offsetChar = numeric.charAt((numeric.indexOf(defaultChar) + key) % numeric.length());
+            }
+            else {
+                while (key < 0) { key += alphabet.length(); }
+                offsetChar = alphabet.charAt((alphabet.indexOf(Character.toLowerCase(defaultChar)) + key) % alphabet.length());
+            }
+
+            if (Character.isUpperCase(defaultChar)) { offsetChar = Character.toUpperCase(offsetChar); }
+            else if (defaultChar == ' ') { offsetChar = ' '; }
+            caesarHash += offsetChar;
+        }
+
+        this.result.append("Caesar Hash [-k: " + key + "]: " + caesarHash);
     }
 }

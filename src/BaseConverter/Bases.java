@@ -131,17 +131,17 @@ public interface Bases {
         int charPos = 0;
 
         for (int i = 0; i < result.length; i++) {
-            int hexaPos = 1;
+            int octaPos = 1;
 
             while (defaultString.charAt(charPos) != ' ') {
                 for (int j = 0; j < octaChar.length; j++) {
                     char currentChar = Character.toLowerCase(defaultString.charAt(charPos));
                     if (currentChar == octaChar[j]) {
-                        result[i] += j * Math.pow(16, hexaPos);
+                        result[i] += j * Math.pow(8, octaPos);
                         break;
                     }
                 }
-                hexaPos--;
+                octaPos--;
                 charPos++;
             }
             charPos++;
