@@ -34,7 +34,9 @@ public class Encryption implements Bases {
     /**
      * Performs the corresponding algorithm based on the given argument
      * 
-     * @param algorithm
+     * 
+     * @param algorithm Is the requested algorithm to crypt our String
+     * @param key       Key is used only if we're using the caesar algorithm, it defines the offset
      * @return          the corresponding encrypted string
      */
     public StringBuilder Encrypt(String algorithm, String key) {

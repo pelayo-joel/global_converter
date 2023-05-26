@@ -2,9 +2,9 @@ package BaseConverter;
 
 
 public interface Bases {
-    /**
-     * The following methods converts based on the decimal value,
-     * to a corresponding base.
+    /*
+     The following methods converts based on the decimal value,
+     to a corresponding base.
      */
     public static StringBuilder Base2(short[] asciiDecimal) {
         StringBuilder base2 = new StringBuilder("");
@@ -99,11 +99,11 @@ public interface Bases {
 
 
 
-    /**
-     * The following methods are all conversion formulas to get the decimal value,
-     * note that we're directly iterating on the original string itself (via 'charPos')
-     * meaning we're not splitting the string or whatsoever, even though the iteration
-     * may vary a little from method to method.
+    /*
+     The following methods are all conversion formulas to get the decimal value,
+     note that we're directly iterating on the original string itself (via 'charPos')
+     meaning we're not splitting the string or whatsoever, even though the iteration
+     may vary a little from method to method.
      */
     public static short[] BinaryToDecimal(int decimalArrayLen, String defaultString) {
         short[] result = new short[decimalArrayLen];
