@@ -38,14 +38,15 @@ git clone https://github.com/pelayo-joel/global_converter.git
 <br></br>
 - To run the program (while in the bin directory): ``java Main arg0 "arg1" arg2``
 <br></br>
-    - ``arg0`` reads the desired base (``-b`` for ``binary``, ``-d`` for ``decimal``, ``-h`` for ``hexadecimal``, ``-o`` for ``octal``, ``-t`` for ``text``).
+    - ``arg0`` reads the desired base (``-b`` for ``--binary``, ``-d`` for ``--decimal``, ``-h`` for ``--hexadecimal``, ``-o`` for ``--octal``, ``-t`` for ``--text``).
     - ``arg1`` String to convert.
-    - (optional) ``arg2`` to encrypt your string. 
+    - ``arg2`` [optional] to encrypt your string (``-s`` for ``--sha256``, ``-c`` for ``--caesar``). 
 
     - Notes: 
         - If your string is not text-based, you'll need a white-space at the end to make it understand that you're not converting text, the program should handle the rest.
-            - Example: "01001000 01100101" -> text, "01001000 01100101 " -> binary
-        - Octal representation shall be noted with a '0' at the beginning (``0110`` instead of ``110``, keeping a convention from C)
+            - Example: ``"01001000 01100101"`` -> text, ``"01001000 01100101 "`` -> binary
+        - Octal representation shall be noted with a '0' at the beginning (``0110`` instead of ``110``, keeping a convention from C).
+        - ``[ISSUE]`` The SHA256 algorithm is right but outputs the wrong hash, migth have to do with the K constants or the initial hash values.
 
 <br></br>
 ### **CREDITS** 

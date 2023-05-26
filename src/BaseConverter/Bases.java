@@ -1,11 +1,12 @@
 package BaseConverter;
 
-interface Bases {
+
+public interface Bases {
     /**
      * The following methods converts based on the decimal value,
      * to a corresponding base.
      */
-    public static StringBuilder Base2(int[] asciiDecimal) {
+    public static StringBuilder Base2(short[] asciiDecimal) {
         StringBuilder base2 = new StringBuilder("");
         int bitValue = 128; //For up to 8 bit
 
@@ -23,12 +24,13 @@ interface Bases {
             }
             base2.append(charBase2 + " ");
         }
+        base2.setLength(base2.length() - 1);
         return base2;
     }
 
 
 
-    public static StringBuilder Base8(int[] asciiDecimal) {
+    public static StringBuilder Base8(short[] asciiDecimal) {
         StringBuilder base8 = new StringBuilder("");
         String octaChar = "01234567";
 
@@ -43,24 +45,26 @@ interface Bases {
             }
             base8.append("0" + charBase8 + " ");
         }
+        base8.setLength(base8.length() - 1);
         return base8;
     }
 
 
 
-    public static StringBuilder Base10(int[] asciiDecimal) {
+    public static StringBuilder Base10(short[] asciiDecimal) {
         StringBuilder base10 = new StringBuilder("");
         for (int i = 0; i < asciiDecimal.length; i++) {
             base10.append(asciiDecimal[i] + " ");
         }
+        base10.setLength(base10.length() - 1);
         return base10;
     }
 
 
     
-    public static StringBuilder Base16(int[] asciiDecimal) {
+    public static StringBuilder Base16(short[] asciiDecimal) {
         StringBuilder base16 = new StringBuilder("");
-        String hexaChar = "0123456789ABCDEF";
+        String hexaChar = "0123456789abcdef";
 
         for (int i = 0; i < asciiDecimal.length; i++) {
             String charBase16 = "";
@@ -76,12 +80,13 @@ interface Bases {
             }
             base16.append(charBase16 + " ");
         }
+        base16.setLength(base16.length() - 1);
         return base16;
     }
 
     
 
-    public static StringBuilder TextBase(int[] asciiDecimal) {
+    public static StringBuilder TextBase(short[] asciiDecimal) {
         StringBuilder textBase = new StringBuilder("");
 
         for (int i = 0; i < asciiDecimal.length; i++) {
@@ -100,12 +105,12 @@ interface Bases {
      * meaning we're not splitting the string or whatsoever, even though the iteration
      * may vary a little from method to method.
      */
-    public static int[] BinaryToDecimal(int decimalArrayLen, String defaultString) {
-        int[] result = new int[decimalArrayLen];
+    public static short[] BinaryToDecimal(int decimalArrayLen, String defaultString) {
+        short[] result = new short[decimalArrayLen];
         short charPos = 0;
 
         for (int i = 0; i < result.length; i++) {
-            int bit = 128;
+            short bit = 128;
             
             while (defaultString.charAt(charPos) != ' ') {
                 if (defaultString.charAt(charPos) == '1') { 
@@ -120,8 +125,8 @@ interface Bases {
 
 
 
-    public static int[] OctaToDecimal(int decimalArrayLen, String defaultString) {
-        int[] result = new int[decimalArrayLen];
+    public static short[] OctaToDecimal(int decimalArrayLen, String defaultString) {
+        short[] result = new short[decimalArrayLen];
         char[] octaChar = {'0', '1', '2', '3', '4', '5', '6', '7'};
         int charPos = 0;
 
@@ -146,8 +151,8 @@ interface Bases {
 
 
 
-    public static int[] Decimal(int decimalArrayLen, String defaultString) {
-        int[] result = new int[decimalArrayLen];
+    public static short[] Decimal(int decimalArrayLen, String defaultString) {
+        short[] result = new short[decimalArrayLen];
         int charPos = defaultString.length() - 2;
 
         for (int i = result.length - 1; i >= 0; i--) {
@@ -166,8 +171,8 @@ interface Bases {
 
 
 
-    public static int[] HexaToDecimal(int decimalArrayLen, String defaultString) {
-        int[] result = new int[decimalArrayLen];
+    public static short[] HexaToDecimal(int decimalArrayLen, String defaultString) {
+        short[] result = new short[decimalArrayLen];
         char[] hexaChar = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
         int charPos = 0;
 
